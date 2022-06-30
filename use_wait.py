@@ -23,11 +23,14 @@ async def main():
 
     print(">> START!")
 
-    await asyncio.wait([
-        good_task("Alice", 5, 1),
-        good_task("Clark", 2, 3),
-        bad_task("DrEvil", 3, 1)
-    ])
+    try:
+        await asyncio.wait([
+            good_task("Alice", 5, 1),
+            good_task("Clark", 2, 3),
+            bad_task("DrEvil", 3, 1)
+        ])
+    except Exception as e:
+        print(f'>> Exception: {e}')
 
     print(">> FINISH (time: {})!".format(time.time() - start_time))
 
