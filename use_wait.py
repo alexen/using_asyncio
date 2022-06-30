@@ -24,7 +24,7 @@ async def main():
     print(">> START!")
 
     try:
-        await asyncio.wait([
+        done, pending = await asyncio.wait([
             good_task("Alice", 5, 1),
             good_task("Clark", 2, 3),
             bad_task("DrEvil", 3, 1)
